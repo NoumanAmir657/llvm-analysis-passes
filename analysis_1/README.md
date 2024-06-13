@@ -1,8 +1,3 @@
-# llvm-pass-skeleton
-
-A completely useless LLVM pass.
-It's for LLVM 17.
-
 Build:
 
     $ cd llvm-pass-skeleton
@@ -11,7 +6,3 @@ Build:
     $ cmake ..
     $ make
     $ cd ..
-
-Run:
-
-    $ clang -mabi=lp64d -fpass-plugin=`echo build/skeleton/SkeletonPass.*` main.c
