@@ -1,0 +1,6 @@
+CHECK: Function Name: factorial
+CHECK-NEXT: Number of load instructions: 5
+CHECK-NEXT: Number of store instructions: 3
+CHECK: Function Name: main
+CHECK-NEXT: Number of load instructions: 2
+CHECK-NEXT: Number of store instructions: 1

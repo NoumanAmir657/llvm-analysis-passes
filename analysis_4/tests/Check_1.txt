@@ -1,0 +1,1 @@
+CHECK: store double 2.000000e+00, ptr %arrayidx1, align 8

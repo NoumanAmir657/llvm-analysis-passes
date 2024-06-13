@@ -1,0 +1,4 @@
+CHECK: Basic Block: return
+CHECK: Instructions: 
+CHECK:  %4 = load i64, ptr %retval, align 8
+CHECK:  ret i64 %4

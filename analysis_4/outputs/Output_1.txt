@@ -1,0 +1,7 @@
+Function: main
+  store double 2.000000e+00, ptr %arrayidx1, align 8
+Allocas: 
+a
+arrayidx
+arrayidx1
+

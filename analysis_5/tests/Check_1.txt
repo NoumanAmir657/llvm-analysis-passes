@@ -1,0 +1,2 @@
+CHECK: Allocas   %a = alloca [5 x [10 x double]], align 8
+CHECK: Size: 400 bytes

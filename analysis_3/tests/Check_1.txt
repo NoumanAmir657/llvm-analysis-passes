@@ -1,0 +1,4 @@
+CHECK: store	1
+CHECK: ret	1
+CHECK: getelementptr	2
+CHECK: alloca	1

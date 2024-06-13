@@ -1,0 +1,47 @@
+Function Name: factorial!
+Basic Block: entry
+Instructions: 
+  %retval = alloca i64, align 8
+  %n.addr = alloca i32, align 4
+  store i32 %n, ptr %n.addr, align 4
+  %0 = load i32, ptr %n.addr, align 4
+  %cmp = icmp eq i32 %0, 0
+  br i1 %cmp, label %if.then, label %lor.lhs.false
+Basic Block: lor.lhs.false
+Instructions: 
+  %1 = load i32, ptr %n.addr, align 4
+  %cmp1 = icmp eq i32 %1, 1
+  br i1 %cmp1, label %if.then, label %if.else
+Basic Block: if.then
+Instructions: 
+  store i64 1, ptr %retval, align 8
+  br label %return
+Basic Block: if.else
+Instructions: 
+  %2 = load i32, ptr %n.addr, align 4
+  %conv = sext i32 %2 to i64
+  %3 = load i32, ptr %n.addr, align 4
+  %sub = sub nsw i32 %3, 1
+  %call = call i64 @factorial(i32 noundef signext %sub)
+  %mul = mul i64 %conv, %call
+  store i64 %mul, ptr %retval, align 8
+  br label %return
+Basic Block: return
+Instructions: 
+  %4 = load i64, ptr %retval, align 8
+  ret i64 %4
+Function Name: main!
+Basic Block: entry
+Instructions: 
+  %retval = alloca i32, align 4
+  %num = alloca i32, align 4
+  store i32 0, ptr %retval, align 4
+  %call = call signext i32 (ptr, ...) @printf(ptr noundef @.str)
+  %call1 = call signext i32 (ptr, ...) @scanf(ptr noundef @.str.1, ptr noundef %num)
+  %0 = load i32, ptr %num, align 4
+  %1 = load i32, ptr %num, align 4
+  %call2 = call i64 @factorial(i32 noundef signext %1)
+  %call3 = call signext i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef signext %0, i64 noundef %call2)
+  ret i32 0
+Function Name: printf!
+Function Name: scanf!
