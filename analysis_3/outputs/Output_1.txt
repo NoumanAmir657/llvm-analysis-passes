@@ -1,4 +1,0 @@
-store   1
-ret   1
-getelementptr   2
-alloca   1

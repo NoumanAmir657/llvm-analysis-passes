@@ -1,3 +1,7 @@
+// RUN: clang -mabi=lp64d -fpass-plugin=`echo ../build/skeleton/SkeletonPass.*` -O0 %s 2>&1 | FileCheck %s
+// RUN: rm ./a.out
+// RUN: rm -r ./Output
+
 #include <stdio.h>
 
 // Function to calculate factorial
@@ -16,3 +20,7 @@ int main() {
     return 0;
 }
 
+// CHECK: Basic Block: return
+// CHECK: Instructions: 
+// CHECK:  %4 = load i64, ptr %retval, align 8
+// CHECK:  ret i64 %4

@@ -6,3 +6,7 @@ Build:
     $ cmake ..
     $ make
     $ cd ..
+
+Run:
+
+    $ clang -fpass-plugin=`echo ../build/skeleton/SkeletonPass.*` -O0 <input_file>
