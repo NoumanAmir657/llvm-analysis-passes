@@ -20,6 +20,9 @@ struct SkeletonPass : public PassInfoMixin<SkeletonPass> {
                         allocas.insert(std::string(allocaInst->getName()));
                     }
                     if (auto *gepInst = dyn_cast<GetElementPtrInst>(&I)) {
+                        if (auto *GV = dyn_cast<GlobalVariable>(gepInst->getPointerOperand())) {
+                            continue;
+                        }
                         allocas.insert(std::string(gepInst->getName()));
                     }
 
